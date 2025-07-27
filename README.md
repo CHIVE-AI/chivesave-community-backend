@@ -250,52 +250,50 @@ All core versioning endpoints are protected and require authentication.
 
 ## 📂 Project Structure
 
-  
 
-\`\`\`
 .
-├── .env                        # Environment variables (e.g., SECRET_KEY, DATABASE_URL)
-├── Dockerfile                  # Docker build instructions
-├── docker-compose.yml          # Docker Compose for multi-service orchestration (app + db)
-├── requirements.txt            # Python dependencies
-├── README.md                   # Project documentation
-├── LICENSE                     # Project license (MIT License)
-├── artifacts/                  # Directory to store actual AI artifact files
-├── current_active_artifact/    # Directory for the currently 'restored' artifact
-└── app/                        # Main application package
-    ├── __init__.py             # Makes 'app' a Python package
-    ├── main.py                 # FastAPI application instance and main router inclusion
-    ├── core/                   # Core application components (config, security, dependencies)
+├── .env                      # Environment variables (e.g., SECRET_KEY, DATABASE_URL)
+├── Dockerfile                # Docker build instructions
+├── docker-compose.yml        # Orchestration for app + DB
+├── requirements.txt          # Python dependencies
+├── README.md                 # Project documentation
+├── LICENSE                   # Project license (e.g., MIT)
+├── artifacts/                # Stored AI artifact files
+├── current_active_artifact/  # Currently active/restored artifact
+└── app/                      # Main application package
+    ├── __init__.py
+    ├── main.py               # FastAPI instance and main routing
+    ├── core/                 # Core configurations and utilities
     │   ├── __init__.py
-    │   ├── config.py           # Application settings (Pydantic BaseSettings)
-    │   ├── security.py         # Password hashing, JWT token creation/validation
-    │   └── dependencies.py     # FastAPI dependencies (DB connection, current user)
-    ├── db/                     # Database-related components
+    │   ├── config.py         # App settings via Pydantic
+    │   ├── security.py       # JWT & password utilities
+    │   └── dependencies.py   # Common dependencies (e.g., DB, current user)
+    ├── db/                   # Database setup and connection
     │   ├── __init__.py
-    │   ├── connection.py       # Asyncpg connection pool and lifecycle
-    │   └── init_db.py          # Initial database schema creation
-    ├── models/                 # Pydantic models for API request/response and DB schemas
+    │   ├── connection.py     # asyncpg connection management
+    │   └── init_db.py        # DB schema initialization
+    ├── models/               # Pydantic models for API & DB
     │   ├── __init__.py
-    │   ├── version.py          # Models for AI artifact versions
-    │   └── user.py             # Models for users and authentication
-    ├── crud/                   # CRUD operations for database interaction
+    │   ├── version.py        # Artifact version schemas
+    │   └── user.py           # User/auth schemas
+    ├── crud/                 # CRUD operations for DB
     │   ├── __init__.py
-    │   ├── versions.py         # CRUD for AI artifact versions
-    │   └── users.py            # CRUD for users
-    ├── services/               # Business logic that might combine multiple CRUD operations
+    │   ├── versions.py       # Version-related DB operations
+    │   └── users.py          # User-related DB operations
+    ├── services/             # Business logic layer
     │   ├── __init__.py
-    │   └── artifact_storage.py # Handles artifact file storage (local or cloud-ready)
-    └── api/                    # API routers
+    │   └── artifact_storage.py # Handles file storage
+    └── api/                  # API routing layer
         ├── __init__.py
-        └── v1/                 # Version 1 of the API
+        └── v1/               # API version 1
             ├── __init__.py
-            ├── api.py          # Main router for /v1, includes all endpoint routers
-            └── endpoints/      # Individual endpoint modules
+            ├── api.py        # Root router for v1
+            └── endpoints/    # Individual endpoint modules
                 ├── __init__.py
-                ├── auth.py     # Authentication endpoints (login, user registration)
-                ├── users.py    # User management endpoints
-                └── versions.py # AI artifact versioning endpoints
-\`\`\`
+                ├── auth.py   # Login and registration
+                ├── users.py  # User management
+                └── versions.py # Versioning endpoints
+
 
   
 
