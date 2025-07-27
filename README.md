@@ -248,54 +248,29 @@ All core versioning endpoints are protected and require authentication.
 
   
 
-## 📂 Project Structure
+## 📁 Project Structure
 
-
+```
 .
-├── .env                      # Environment variables (e.g., SECRET_KEY, DATABASE_URL)
-├── Dockerfile                # Docker build instructions
-├── docker-compose.yml        # Orchestration for app + DB
-├── requirements.txt          # Python dependencies
-├── README.md                 # Project documentation
-├── LICENSE                   # Project license (e.g., MIT)
-├── artifacts/                # Stored AI artifact files
-├── current_active_artifact/  # Currently active/restored artifact
-└── app/                      # Main application package
-    ├── __init__.py
-    ├── main.py               # FastAPI instance and main routing
-    ├── core/                 # Core configurations and utilities
-    │   ├── __init__.py
-    │   ├── config.py         # App settings via Pydantic
-    │   ├── security.py       # JWT & password utilities
-    │   └── dependencies.py   # Common dependencies (e.g., DB, current user)
-    ├── db/                   # Database setup and connection
-    │   ├── __init__.py
-    │   ├── connection.py     # asyncpg connection management
-    │   └── init_db.py        # DB schema initialization
-    ├── models/               # Pydantic models for API & DB
-    │   ├── __init__.py
-    │   ├── version.py        # Artifact version schemas
-    │   └── user.py           # User/auth schemas
-    ├── crud/                 # CRUD operations for DB
-    │   ├── __init__.py
-    │   ├── versions.py       # Version-related DB operations
-    │   └── users.py          # User-related DB operations
-    ├── services/             # Business logic layer
-    │   ├── __init__.py
-    │   └── artifact_storage.py # Handles file storage
-    └── api/                  # API routing layer
-        ├── __init__.py
-        └── v1/               # API version 1
-            ├── __init__.py
-            ├── api.py        # Root router for v1
-            └── endpoints/    # Individual endpoint modules
-                ├── __init__.py
-                ├── auth.py   # Login and registration
-                ├── users.py  # User management
-                └── versions.py # Versioning endpoints
-
-
-  
+├── .env
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── README.md
+├── LICENSE
+├── artifacts/
+├── current_active_artifact/
+└── app/
+    ├── main.py
+    ├── core/
+    ├── db/
+    ├── models/
+    ├── crud/
+    ├── services/
+    └── api/
+        └── v1/
+            └── endpoints/
+```
 
 ## 🤝 Contributing
 
